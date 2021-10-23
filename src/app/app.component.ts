@@ -44,7 +44,6 @@ export class AppComponent {
       this.prepareRequest(endPoint, method, headers, body).subscribe(
         (response: any) => {
           this.loading = false;
-          console.log('Got response', response.headers);
           this.response = JSON.stringify(response);
           this.prettyTextArea();
           this.error = '';
@@ -53,7 +52,7 @@ export class AppComponent {
           this.loading = false;
           this.error = error;
           this.response = '';
-          console.log('Error', error);
+          console.error('Error', error);
         }
       );
     } else {
