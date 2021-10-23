@@ -3,9 +3,9 @@
     <span class="navbar-brand mb-0 h1">REST Pilot</span>
   </div>
 </nav>
-<div class="container mt-5 disable-selection" *ngIf="!loading">
+<div class="container mt-5 disable-selection">
   <div class="row">
-    <div class="col-8">
+    <div class="col-md-8 col-12">
       <h2>Request</h2>
       <form [formGroup]="requestForm" (submit)="onSubmit()">
         <div class="mb-3">
@@ -74,26 +74,22 @@
         </div>
       </form>
     </div>
-    <div class="col-4">
+    <div class="col-md-4 col-12">
       <h2>Response</h2>
-      <div class="alert alert-success" role="alert" *ngIf="response">
+      <div class="alert alert-success mt-5" role="alert" *ngIf="!loading && response">
         Request made successfully
       </div>
-      <div class="alert alert-danger" role="alert" *ngIf="error">
+      <div class="alert alert-danger mt-5" role="alert" *ngIf="!loading && error">
         {{ error }}
       </div>
-      <div class="mb-3" *ngIf="response">
+      <div class="mb-3" *ngIf="!loading && response">
         <textarea class="form-control" rows="6" [(ngModel)] = "response" disabled>
           {{ response | json }}
         </textarea>
       </div>
-    </div>
-  </div>
-</div>
-<div class="container mt-5" *ngIf="loading">
-  <div class="row">
-    <div class="col-12  d-flex align-items-center justify-content-center">
-      <div class="loader"></div>
+      <div *ngIf="loading" class="col-12 mt-5 d-flex align-items-center justify-content-center">
+        <div class="loader"></div>
+      </div>
     </div>
   </div>
 </div>

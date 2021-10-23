@@ -68,9 +68,9 @@ export class AppComponent {
     } else if (method == 'post') {
       return this.http.post(endpoint, params, headers);
     } else if (method == 'put') {
-      return this.http.post(endpoint, params, headers);
+      return this.http.put(endpoint, params, headers);
     } else if (method == 'delete') {
-      return this.http.post(endpoint, headers, params);
+      return this.http.delete(endpoint, headers, params);
     } else {
       return this.http.get(endpoint, headers, params);
     }
@@ -124,8 +124,10 @@ export class AppComponent {
         parsedObject = JSON.parse(this.requestBody);
         this.requestBody = JSON.stringify(parsedObject, undefined, 4);
       }
+      this.error = ""
     } catch (error) {
       this.error = "In formatting\n" + error
+      this.response = ""
     }
     
   }

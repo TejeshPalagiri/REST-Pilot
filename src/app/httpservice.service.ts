@@ -76,8 +76,6 @@ export class HttpserviceService {
     keys.forEach((key) => {
       requestHeaders.set(key, headers[key])
     })
-
-    console.log(keys)
     return requestHeaders;
   }
 
